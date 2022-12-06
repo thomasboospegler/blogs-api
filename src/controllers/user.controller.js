@@ -22,7 +22,7 @@ const createUser = async (req, res) => {
   const user = await userService.createUser(displayName, email, password);
   const token = jwt.sign({ data: user }, secret, jwtConfig);
   res.status(201).json({ token });
-}
+};
 
 module.exports = {
   login,
