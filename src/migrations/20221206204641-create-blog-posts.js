@@ -27,7 +27,6 @@ module.exports = {
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        field: 'user_id',
       },
       published: {
         allowNull: false,
