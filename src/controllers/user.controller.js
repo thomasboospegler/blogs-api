@@ -18,8 +18,8 @@ const login = async (req, res) => {
 };
 
 const createUser = async (req, res) => {
-  const { name, email, password } = req.body;
-  const user = await userService.createUser(name, email, password);
+  const { displayName, email, password } = req.body;
+  const user = await userService.createUser(displayName, email, password);
   const token = jwt.sign({ data: user }, secret, jwtConfig);
   res.status(201).json({ token });
 }

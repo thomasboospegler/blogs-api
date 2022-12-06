@@ -2,9 +2,9 @@ const { userSchema } = require('./schemas');
 const userService = require('../services/user.service');
 
 const validateUser = async (req, res, next) => {
-  const { name, email, password } = req.body;
+  const { displayName, email, password } = req.body;
 
-  const { error } = userSchema.validate({ name, email, password});
+  const { error } = userSchema.validate({ displayName, email, password});
   if (error) return res.status(400).json({ message: error.details[0].message });
 
   const user = await userService.getUserByEmail(email);
