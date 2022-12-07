@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     title: DataTypes.STRING,
     content: DataTypes.STRING,
-    user_id: {
+    userId: {
       foreignKey: true,
       type: DataTypes.INTEGER,
     },
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     timestamps: false,
-    underScored: true,
+    underscored: true,
     tableName: 'blog_posts',
     modelName: 'BlogPost',
   });
