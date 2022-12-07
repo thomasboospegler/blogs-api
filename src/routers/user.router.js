@@ -9,4 +9,6 @@ router.post('/', validateUser, userController.createUser);
 
 router.get('/', validateJWT, userController.getAllUsers);
 
+router.get('/:id', validateJWT, userController.getUserById);
+
 module.exports = router;
