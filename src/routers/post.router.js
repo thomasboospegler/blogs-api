@@ -8,6 +8,8 @@ const router = express.Router();
 
 router.post('/', validateJWT, validatePost, postController.createPost);
 
+router.get('/search', validateJWT, postController.searchPost);
+
 router.get('/', validateJWT, postController.getAllPosts);
 
 router.get('/:id', validateJWT, postController.getPostById);

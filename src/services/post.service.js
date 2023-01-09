@@ -81,10 +81,22 @@ const updatePost = async (post, id) => {
 
 const deletePost = async (id) => BlogPost.destroy({ where: { id } });
 
+const searchPost = async (q) => {
+  const posts = await getAllPosts();
+
+  if (!q) return posts;
+
+  const postsFound = posts.filter(({ title, content }) => title.includes(q)
+    || content.includes(q));
+
+  return postsFound;
+};
+
 module.exports = {
   createPost,
   getAllPosts,
   getPostById,
   updatePost,
   deletePost,
+  searchPost,
 };
