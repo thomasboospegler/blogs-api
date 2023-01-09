@@ -22,9 +22,15 @@ const postSchema = Joi.object({
   categoryIds: Joi.array().items(Joi.number().integer().required()).min(1).required(),
 });
 
+const editPostSchema = Joi.object({
+  title: Joi.string().required(),
+  content: Joi.string().required(),
+});
+
 module.exports = {
   loginSchema,
   userSchema,
   categorySchema,
   postSchema,
+  editPostSchema,
 };

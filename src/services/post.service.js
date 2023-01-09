@@ -63,8 +63,27 @@ const getPostById = async (id, transaction = null) => {
   return result;
 };
 
+const updatePost = async (post, id) => {
+  try {
+    const updatedPost = await sequelize.transaction(async (t) => {
+      await BlogPost.update(post, { where: { id } }, { transaction: t });
+
+      const newUpdatedPost = await getPostById(id, { transaction: t });
+
+      return newUpdatedPost;
+    });
+
+    return updatedPost;
+    
+  } catch (e) {
+    console.log(e.message);
+    throw e.message;
+  }
+};
+
 module.exports = {
   createPost,
   getAllPosts,
   getPostById,
+  updatePost,
 };
