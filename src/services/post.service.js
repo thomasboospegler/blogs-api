@@ -72,9 +72,7 @@ const updatePost = async (post, id) => {
 
       return newUpdatedPost;
     });
-
     return updatedPost;
-    
   } catch (e) {
     console.log(e.message);
     throw e.message;
